@@ -8,21 +8,9 @@
 Recursive Serialization for Django REST framework
 
 This package provides a `RecursiveField` that enables you to serialize a tree,
-linked list, or even a directed acyclic graph. 
+linked list, or even a directed acyclic graph. Also supports validation, 
+deserialization, ModelSerializers, and multi-step recursive structures.
 
-## Requirements
-
-* Python (2.7, 3.3, 3.4)
-* Django (1.6, 1.7)
-* Django REST Framework (3.0)
-
-## Installation
-
-Install using `pip`...
-
-```bash
-$ pip install djangorestframework-recursive
-```
 
 ## Example
 
@@ -35,7 +23,31 @@ class TreeSerializer(serializers.Serializer):
     children = serializers.ListField(child=RecursiveField())
 ```
 
-see [here][tests] for more usage examples
+see [**here**][tests] for more usage examples
+
+
+## Requirements
+
+* Python (Tested on 2.7, 3.4)
+* Django (Tested on 1.8, 1.9)
+* Django REST Framework (Tested on 3.3)
+
+
+## Installation
+
+Install using `pip`...
+
+```bash
+$ pip install djangorestframework-recursive
+```
+
+## Release notes
+
+### 0.1.2
+* This is the first release to include release notes.
+* Use inspect.signature when available. This avoids emitting deprecation warnings on Python 3.
+* Updated CI versions. djangoreestframework-recursive is now tested against DRF
+  3.3-3.6, Python 2.7 and 3.6 and Django 1.8-1.11.
 
 ## Testing
 
@@ -60,6 +72,6 @@ $ tox
 
 [build-status-image]: https://secure.travis-ci.org/heywbj/django-rest-framework-recursive.png?branch=master
 [travis]: http://travis-ci.org/heywbj/django-rest-framework-recursive?branch=master
-[pypi-version]: https://pypip.in/version/djangorestframework-recursive/badge.svg
+[pypi-version]: https://img.shields.io/pypi/v/djangorestframework-recursive.svg
 [pypi]: https://pypi.python.org/pypi/djangorestframework-recursive
 [tests]: https://github.com/heywbj/django-rest-framework-recursive/blob/master/tests/test_recursive.py
